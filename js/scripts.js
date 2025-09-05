@@ -1,3 +1,4 @@
+// js/scripts.js for SVG-Learn-SVG.
 // Modal functionality
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
