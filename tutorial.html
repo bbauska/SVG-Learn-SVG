@@ -22,10 +22,19 @@
     const detailScreens = [];
     detailScreens.push({
       title: "Christmas bauble",
-      description: `<p>The SVG tag contains the image elements and defines the frame of our image. It has a width and a height property defining how much space the image takes up in the document. There's also a viewBox property that defines a coordinate system. Every image element is positioned based on this coordinate system. The first two values in viewBox define the top-left coordinate in the image and the last two define the size. The size, in this case, matches the one defined at the width and the height, but that's not necessary. If they don't match the image scales up or scales down. With this setting, the 0,0 coordinate ends up at the middle of the image.</p>
-      <p>Let’s start with a simple Christmas bauble. Here we only use simple shapes, a rectangle, and two circles. We position and style these elements with attributes. For the circle, we define the center position and for the rectangle, we define the top left corner. These positions are always related to the coordinate system defined by the viewBox.</p>
+      description: `<p>The SVG tag contains the image elements and defines the frame of our image. It has a width and a 
+	  height property defining how much space the image takes up in the document. There's also a viewBox property that 
+   defines a coordinate system. Every image element is positioned based on this coordinate system. The first two values 
+   in viewBox define the top-left coordinate in the image and the last two define the size. The size, in this case, 
+   matches the one defined at the width and the height, but that's not necessary. If they don't match the image scales 
+   up or scales down. With this setting, the 0,0 coordinate ends up at the middle of the image.</p>
+      <p>Let’s start with a simple Christmas bauble. Here we only use simple shapes, a rectangle, and two circles. We 
+	  position and style these elements with attributes. For the circle, we define the center position and for the 
+   rectangle, we define the top left corner. These positions are always related to the coordinate system defined by the viewBox.</p>
 
-      <p>We also have presentational attributes that style our shapes. Unlike in HTML, we do not use background-color to set a color for a shape but we use the fill attribute. And to set a border for a shape we use stroke and stroke-width. Note how we use the circle element both to draw a ring and a ball with different attributes.</p>`,
+      <p>We also have presentational attributes that style our shapes. Unlike in HTML, we do not use background-color to set 
+	  a color for a shape but we use the fill attribute. And to set a border for a shape we use stroke and stroke-width. Note 
+   how we use the circle element both to draw a ring and a ball with different attributes.</p>`,
 	   sourceCodes: [{
         type: "HTML",
         content: `
@@ -46,7 +55,8 @@
     });  <!-- detailScreens.push  -->
     detailScreens.push({
       title: "Tree",
-      description: `<p>We can’t always use basic shapes to assemble our image. A polygon is the simplest way to draw a freeform shape. Here we set a list of coordinates that are connected with straight lines.</p>`,
+      description: `<p>We can’t always use basic shapes to assemble our image. A polygon is the simplest way to draw a 
+	  freeform shape. Here we set a list of coordinates that are connected with straight lines.</p>`,
       sourceCodes: [{
         type: "HTML",
         content: `
@@ -169,9 +179,13 @@
   });
   detailScreens.push({
     title: "Christmas bauble with clip-path",
-    description: `<p>This bauble has a motif on its side defined as a polyline. Polylines normally wouldn't care about the edge of the ball. Part of the line would overhang or stop too soon. We use clip-path here to make sure that the motif fits perfectly with the ball.</p>
+    description: `<p>This bauble has a motif on its side defined as a polyline. Polylines normally wouldn't care 
+	about the edge of the ball. Part of the line would overhang or stop too soon. We use clip-path here to make 
+ sure that the motif fits perfectly with the ball.</p>
 
-<p>We define the motif to be bigger than the ball then we cut the overhanging parts with a clip-path. The clip-path is defined in the definitions section. The defs section is like a hidden compartment of our image. Things here don't show up as part of our image, but we can refer to them and use them later.</p>`,
+<p>We define the motif to be bigger than the ball then we cut the overhanging parts with a clip-path. The clip-path 
+is defined in the definitions section. The defs section is like a hidden compartment of our image. Things here don't 
+show up as part of our image, but we can refer to them and use them later.</p>`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -205,9 +219,14 @@
   });
   detailScreens.push({
     title: "Star",
-    description: `<p>A star is a simple shape, so we could define it as a bunch of polygons and set each point individually. But then we would need to know each coordinate. Instead of that, we can just define one wing, then repeat it five times with a rotation to get the same shape. We use the transform attribute to set a rotation.</p>
+    description: `<p>A star is a simple shape, so we could define it as a bunch of polygons and set each point 
+	individually. But then we would need to know each coordinate. Instead of that, we can just define one wing, 
+ then repeat it five times with a rotation to get the same shape. We use the transform attribute to set a rotation.</p>
 
-<p>In this example, each wing consists of two polygons. They need to be rotated the same way, so we can group them with a g tag and rotate them together. You can think of the g tag as the div tag in HTML. On its own, it does not represent anything. But it can contain other elements and attributes defined on the group tag apply to its children.</p>`,
+<p>In this example, each wing consists of two polygons. They need to be rotated the same way, so we can group 
+them with a g tag and rotate them together. You can think of the g tag as the div tag in HTML. On its own, it 
+does not represent anything. But it can contain other elements and attributes defined on the group tag apply 
+to its children.</p>`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -238,11 +257,19 @@
   });
   detailScreens.push({
     title: "Snowflake",
-    description: `<p>Instead of repeating the same code over and over again we can also create a definition for a shape and reuse it. Here we define a branch of a snowflake then use it six times with different rotations.</p>
+    description: `<p>Instead of repeating the same code over and over again we can also create a definition 
+	for a shape and reuse it. Here we define a branch of a snowflake then use it six times with different rotations.</p>
 
-<p>The branch is defined as a path. The path is the most powerful SVG tag. We can define pretty much anything with paths and if you open any SVG file, you will see paths mostly.</p>
+<p>The branch is defined as a path. The path is the most powerful SVG tag. We can define pretty much anything 
+with paths and if you open any SVG file, you will see paths mostly.</p>
 
-<p>The shape of the path is defined by the d attribute. Here we define several drawing commands. A command always starts with a letter defining the command type and ends with a coordinate. Here we only have the two most simple commands, move to and line to. The move to command moves the cursor to a point without drawing a line and the line to command draws a straight line from the previous point. A command always continues the previous command so when we draw a line we only define the endpoint. The starting point will be the previous command’s endpoint. This path is a bit unusual because there are several move to commands in it to draw the main branch and each side branches with the same path.</p>`,
+<p>The shape of the path is defined by the d attribute. Here we define several drawing commands. A command 
+always starts with a letter defining the command type and ends with a coordinate. Here we only have the two 
+most simple commands, move to and line to. The move to command moves the cursor to a point without drawing a 
+line and the line to command draws a straight line from the previous point. A command always continues the 
+previous command so when we draw a line we only define the endpoint. The starting point will be the previous 
+command’s endpoint. This path is a bit unusual because there are several move to commands in it to draw the 
+main branch and each side branches with the same path.</p>`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -273,7 +300,8 @@
   });
   detailScreens.push({
     title: "Forest",
-    description: `Rotation is not the only way we can generate images from simple shapes. In this example, we define a tree shape then place it to various positions in different sizes to draw a forest.`,
+    description: `Rotation is not the only way we can generate images from simple shapes. In this example, 
+	we define a tree shape then place it to various positions in different sizes to draw a forest.`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -303,7 +331,10 @@
   });
   detailScreens.push({
     title: "Christmas bauble with gradient",
-    description: `The filling of a shape can be defined as a gradient. Here we apply a radial gradient to our Christmas decoration to have a subtle 3D effect. It has a different syntax than CSS but the capabilities are rather similar. Gradients in SVG though can also be applied for strokes and pretty cool effects can be achieved that way.`,
+    description: `The filling of a shape can be defined as a gradient. Here we apply a radial gradient to our 
+	Christmas decoration to have a subtle 3D effect. It has a different syntax than CSS but the capabilities 
+ are rather similar. Gradients in SVG though can also be applied for strokes and pretty cool effects can be 
+ achieved that way.`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -361,7 +392,11 @@
   });
   detailScreens.push({
     title: "Quadratic Bézier",
-    description: `The path element becomes really powerful when we start using curves. One of them is the quadratic Bezier curve that not only defines an endpoint for a segment but also has a control point. The control point is an invisible coordinate to which the line is bending to, but not touching it. Here we have a series of quadratic beziers where the control points get further and further away from the center of the tree as the path goes down.`,
+    description: `The path element becomes really powerful when we start using curves. One of them is the 
+	quadratic Bezier curve that not only defines an endpoint for a segment but also has a control point. 
+ The control point is an invisible coordinate to which the line is bending to, but not touching it. Here 
+ we have a series of quadratic beziers where the control points get further and further away from the 
+ center of the tree as the path goes down.`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="400" viewBox="-100 -200 200 400">
@@ -400,9 +435,14 @@
   });
   detailScreens.push({
     title: "Cubic Bézier",
-    description: `<p>While the quadratic bezier is great when we want to bend a line, often it’s not flexible enough. With cubic Bezier, we not only one have one control point but two. The first control point sets the initial direction of the curve and the second one defines from which direction should the curve arrive to its endpoint. If these directions match the directions of the line before and the line after the curve, then we have a smooth transitioning between the path segments.</p>
+    description: `<p>While the quadratic bezier is great when we want to bend a line, often it’s not 
+	flexible enough. With cubic Bezier, we not only one have one control point but two. The first 
+ control point sets the initial direction of the curve and the second one defines from which direction 
+ should the curve arrive to its endpoint. If these directions match the directions of the line before 
+ and the line after the curve, then we have a smooth transitioning between the path segments.</p>
 
-<p>In this example the ribbon of the gift box uses a cubic Bezier that smoothly continues the previous straight line then turns back to the direction of the upcoming line.</p>`,
+<p>In this example the ribbon of the gift box uses a cubic Bezier that smoothly continues the previous 
+straight line then turns back to the direction of the upcoming line.</p>`,
     sourceCodes: [{
         type: "HTML",
         content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -455,7 +495,10 @@
   });
   detailScreens.push({
     title: "Bell",
-    description: `Let’s have another example with cubic and quadratic beziers. Here the bottom of this bell is defined with straight lines. Then a quadratic Beziers starts the bell cloak. Then the line is continued with a cubic Bezier to form the top of the bell. Then we reach the bottom part with another quadratic bezier.`,
+    description: `Let’s have another example with cubic and quadratic beziers. Here the bottom of this 
+	bell is defined with straight lines. Then a quadratic Beziers starts the bell cloak. Then the line 
+ is continued with a cubic Bezier to form the top of the bell. Then we reach the bottom part with 
+ another quadratic bezier.`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -479,9 +522,15 @@
   });
   detailScreens.push({
     title: "Arc",
-    description: `<p>If you thought that cubic Beziers are the most complicated parts of SVGs then I have bad news for you. Arcs are even more complicated.</p>
+    description: `<p>If you thought that cubic Beziers are the most complicated parts of SVGs then I 
+	have bad news for you. Arcs are even more complicated.</p>
 
-<p>The last two parameters are still the endpoint of the arc. Arcs have five extra parameters on top of that though. You define a horizontal and vertical radius for an arc. If these two values are not the same then you end up with an ellipse. If you draw an ellipse you can also turn it by an angle, which will be the third parameter. Given the starting point coming from the previous segment, given the endpoint defined here, and the radiuses there are still two possible arc centers and four possible arcs to draw. The last two parameters of an arc are to pick one of these four options.</p>`,
+<p>The last two parameters are still the endpoint of the arc. Arcs have five extra parameters on top of 
+that though. You define a horizontal and vertical radius for an arc. If these two values are not the 
+same then you end up with an ellipse. If you draw an ellipse you can also turn it by an angle, which 
+will be the third parameter. Given the starting point coming from the previous segment, given the 
+endpoint defined here, and the radiuses there are still two possible arc centers and four possible 
+arcs to draw. The last two parameters of an arc are to pick one of these four options.</p>`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="400" viewBox="-100 -200 200 400">
@@ -612,7 +661,10 @@
   });
   detailScreens.push({
     title: "Text Path",
-    description: `Drawing shapes are not the only use case for paths. We can also use them to render a text along an invisible path. We can define a path in the definitions section to make sure it's invisible. Then we refer to it in the textPath attribute to make a text go around a circle. Here we use arc again, but you can use any other path and the text will follow it.`,
+    description: `Drawing shapes are not the only use case for paths. We can also use them to render 
+	a text along an invisible path. We can define a path in the definitions section to make sure it's 
+ invisible. Then we refer to it in the textPath attribute to make a text go around a circle. Here we 
+ use arc again, but you can use any other path and the text will follow it.`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -635,9 +687,14 @@
   });
   detailScreens.push({
     title: "Path based animation",
-    description: `<p>Another fun use of paths is to create animation paths. This method is not SVG only. I’m using a CSS property here that works for any other HTML tag. But if you check the value of this attribute, you see that we define a path the same way as we do for SVGs.</p>
+    description: `<p>Another fun use of paths is to create animation paths. This method is not SVG only. 
+	I’m using a CSS property here that works for any other HTML tag. But if you check the value of this 
+ attribute, you see that we define a path the same way as we do for SVGs.</p>
 
-<p>To give you a fair warning though, this feature at this point is rather experimental at this point and it’s not supported for Safari. There’s also an old SVG specific way for doing the same thing with animationMotion. Unfortunately, that’s rather obsolete. So at this point, neither of these are fully supported, but I’m sure there’s going to be a way in the future to use paths for animation.</p>`,
+<p>To give you a fair warning though, this feature at this point is rather experimental at this point 
+and it’s not supported for Safari. There’s also an old SVG specific way for doing the same thing with 
+animationMotion. Unfortunately, that’s rather obsolete. So at this point, neither of these are fully 
+supported, but I’m sure there’s going to be a way in the future to use paths for animation.</p>`,
     sourceCodes: [{
         type: "HTML",
         content: `<svg width="400" height="200" viewBox="-200 -100 400 200" fill="none">
@@ -683,7 +740,10 @@
   });
   detailScreens.push({
     title: "Ringing on hover",
-    description: `A more traditional animation that certainly works in every browser is a ringing effect. We animate the transform property with keyframes. We can even trigger this effect on hovering. There’s nothing SVG specific here. The same works with any HTML element, but it’s a cool example of how to combine SVGs with CSS.`,
+    description: `A more traditional animation that certainly works in every browser is a ringing effect. 
+	We animate the transform property with keyframes. We can even trigger this effect on hovering. There’s 
+ nothing SVG specific here. The same works with any HTML element, but it’s a cool example of how to combine 
+ SVGs with CSS.`,
     sourceCodes: [{
         type: "HTML",
         content: `<svg class="bell" width="200" height="200" viewBox="-100 -100 200 200">
@@ -731,7 +791,9 @@
   });
   detailScreens.push({
     title: "Snowing",
-    descritpion: `To continue our forest example we can add a snowing effect with a similar animation. We animate transform again, but this time we move many more elements. It's a bit glitchy and not the most sophisticated animation, but you get the idea.`,
+    descritpion: `To continue our forest example we can add a snowing effect with a similar animation. We 
+	animate transform again, but this time we move many more elements. It's a bit glitchy and not the most 
+ sophisticated animation, but you get the idea.`,
     sourceCodes: [{
         type: "HTML",
         content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -802,7 +864,12 @@
   });
   detailScreens.push({
     title: "Background pattern",
-    description: `This example is a bit of an easter egg. For any HTML element, you can set a background image in CSS. Here we usually provide a link to an image, but we can also inline one here. Normally you wouldn't do that, because you end up with something gibberish in your CSS. If we do that with an SVG though then it’s not even that cryptic. This SVG code is still character encoded, so that’s why you still see some weird parts.  The pointy brackets are replaced here. This is a great way to create background patterns with only a few lines of code in CSS. If you like this idea check out svgbackgrounds.com for a lot of great patterns.`,
+    description: `This example is a bit of an easter egg. For any HTML element, you can set a background image 
+	in CSS. Here we usually provide a link to an image, but we can also inline one here. Normally you wouldn't 
+ do that, because you end up with something gibberish in your CSS. If we do that with an SVG though then it’s 
+ not even that cryptic. This SVG code is still character encoded, so that’s why you still see some weird parts. 
+ The pointy brackets are replaced here. This is a great way to create background patterns with only a few lines 
+ of code in CSS. If you like this idea check out svgbackgrounds.com for a lot of great patterns.`,
     sourceCodes: [{
         type: "HTML",
         content: `<div class="background" />`
@@ -819,9 +886,14 @@
   });
   detailScreens.push({
     title: "Clock",
-    description: `<p>SVG elements can be manipulated from JavaScript the same way as any other HTML tag. In this example we are using a short code snipped to show the actual time on a clock. You can even have a script tag inside the SVG but of course, you can have it outside of an SVG as well and refer to the elements the same way.</p>
+    description: `<p>SVG elements can be manipulated from JavaScript the same way as any other HTML tag. In this 
+	example we are using a short code snipped to show the actual time on a clock. You can even have a script tag 
+ inside the SVG but of course, you can have it outside of an SVG as well and refer to the elements the same way.</p>
 
-<p>There’s another trick here worth mentioning. The dots here showing each hour are actually part of a circle. In CSS we can set the border-style to be dashed, but CSS is not too flexible on this one. SVG though took this to the next level and we can fine-tune the length of each dash segment and the space in between. That’s what we use here to show the dots for each hour.</p>`,
+<p>There’s another trick here worth mentioning. The dots here showing each hour are actually part of a circle. 
+In CSS we can set the border-style to be dashed, but CSS is not too flexible on this one. SVG though took this 
+to the next level and we can fine-tune the length of each dash segment and the space in between. That’s what 
+we use here to show the dots for each hour.</p>`,
     sourceCodes: [{
       type: "HTML",
       content: `<svg width="200" height="200" viewBox="-100 -100 200 200">
@@ -857,7 +929,9 @@
   });
   detailScreens.push({
     title: "Interaction",
-    description: `We can not only manipulate SVGs from JavaScript but we can also assign event listeners to parts of SVGs. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You can even create a full-featured game with SVG and JavaScript.`,
+    description: `We can not only manipulate SVGs from JavaScript but we can also assign event listeners to parts 
+	of SVGs. Here, by clicking the red button we switch on or off the lights. The possibilities are endless. You 
+ can even create a full-featured game with SVG and JavaScript.`,
     sourceCodes: [{
         type: "HTML",
         content: `<svg class="lights" width="200" height="200" viewBox="-100 -100 200 200">
@@ -911,9 +985,12 @@
   });
   detailScreens.push({
     title: "Data-driven diagram",
-    description: `<p>SVGs also work well with frontend libraries. Here I’m using React to generate a data-driven diagram. Here I’m both generating a list of rectangles to create a column diagram based on some data and I also generate a series of coordinates for a polyline.</p>
+    description: `<p>SVGs also work well with frontend libraries. Here I’m using React to generate a 
+	data-driven diagram. Here I’m both generating a list of rectangles to create a column diagram based 
+ on some data and I also generate a series of coordinates for a polyline.</p>
 
-<p>For simple use cases, you can code your own diagram like this. But if you need more complex diagrams then check out the D3 library. The D3 library uses SVG under to hood to create all sorts of diagrams.</p>`,
+<p>For simple use cases, you can code your own diagram like this. But if you need more complex diagrams 
+then check out the D3 library. The D3 library uses SVG under to hood to create all sorts of diagrams.</p>`,
     sourceCodes: [{
       type: "JavaScript",
       content: `function Diagram() {
@@ -943,7 +1020,10 @@
   });
   detailScreens.push({
     title: "Multi-component snow globe",
-    description: `If you really got into SVGs and you got one where the code got a bit out of hand then you can break it down into components. Here I’m using React again, but the same things apply for Vue.JS. Mind though that there’s only one SVG tag at the root of the component as there's still only one image. The child components have their content in group elements.`,
+    description: `If you really got into SVGs and you got one where the code got a bit out of hand then you 
+	can break it down into components. Here I’m using React again, but the same things apply for Vue.JS. 
+ Mind though that there’s only one SVG tag at the root of the component as there's still only one image. 
+ The child components have their content in group elements.`,
     sourceCodes: [{
       type: "JavaScript",
       content: `function SnowGlobe() {
