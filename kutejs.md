@@ -70,6 +70,7 @@ the opacity of three different boxes in sequence</a>.</p>
 </pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!-- css -->
+<pre>
 body {
   margin: 20px;
   font-family: 'Lato';
@@ -128,7 +129,6 @@ startButton.addEventListener(
   false
 );
 </pre>
-
 
 <p>All the boxes above have a box class which has been used to select them all using the querySelectorAll() 
 method. The allFromTo() method in KUTE.js is used to animate the opacity of these boxes from 1 to 0.1 
