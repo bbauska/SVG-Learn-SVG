@@ -445,7 +445,7 @@ of these boxes from 1 to 0.1 with an offset of 700 milliseconds. As you can see,
 object does not start the animation by itself. You have to call the start() method in order 
 to start the animation.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h3>Controlling the Animation Playback<h3>
+<h3>Controlling the Animation Playback</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>In the previous section, we used the start() method in order to start our animations. The 
 KUTE.js library also provides a few other methods that can be used to control the animation 
@@ -511,7 +511,6 @@ resumeButton.addEventListener(
 
 <p>I have changed the animation duration to 2,000 milliseconds. This gives us enough time to press 
 different buttons and see how they affect the animation playback.</p>
-
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3>Chaining Tweens Together</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
