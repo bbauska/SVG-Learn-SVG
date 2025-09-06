@@ -12,14 +12,12 @@ developer guide
 Scalable Vector Graphics (SVG) is no longer just an alternative; it's a cornerstone technology for modern web and application development. Why? Because SVGs deliver visuals that remain perfectly crisp and clear, no matter how large or small they are scaled. This inherent resolution independence is critical in today's multi-device world, setting SVG apart from traditional pixel-based raster formats like JPEG, PNG, or GIF. Instead of using pixels, SVG uses XML (Extensible Markup Language) – a text-based format – to describe shapes, lines, and curves mathematically. This has profound implications for developers:
 
 	- Scalability: Infinite zoom without quality loss.
-
 	- Smaller File Sizes: Often smaller than raster equivalents for icons, logos, and illustrations, improving load times.
 	- Text-Based: Edit SVGs in any text editor. More importantly, the content is indexable by search engines, potentially boosting SEO.
 	- Stylable & Scriptable: Manipulate SVGs easily with CSS and JavaScript.
 	- Animatable: Create complex animations using CSS, JavaScript, or SMIL.
 	- Accessible: Can be made highly accessible to assistive technologies.
 	- Open Standard: Developed and maintained by the W3C, ensuring compatibility and royalty-free usage.
-
 
 From crisp website icons and logos to dynamic illustrations, interactive charts, and data visualizations, SVG's versatility makes it indispensable for developers aiming for high-quality, performant, and accessible user interfaces.
 
