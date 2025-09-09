@@ -1,0 +1,193 @@
+HTML {
+  font-family: 'Righteous', 'Poiret One', 'Bungee Shade', cursive;
+  font-size: 100%;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+BODY {
+  height: 100vh;
+  margin: 0;
+  background: rgb(45, 45, 45);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  color: inherit;
+}
+
+.canvas {
+  position: relative;
+  max-width: 750px;
+  min-height: 100%;
+  margin: 0 auto;
+  //background: rgb(45, 45, 45);
+}
+
+/*Actual Style*/
+
+/*============================
+           Head
+==============================*/
+.bender__head {
+  position: absolute;
+  width: 300px; height: 600px;
+  left: 30%; top: 3%;
+}
+
+/*============================
+           Antenna
+==============================*/
+.bender__antenna {
+  position: absolute;
+  width: 7%; height: 13%;
+  left: 47.5%; top: 2%;
+  border-bottom: 100px solid rgb(152, 153, 155);
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+}
+
+.bender__antenna::before,
+.bender__antenna::after {
+  content: "";
+  position: absolute;
+  background: rgb(152, 153, 155);
+}
+
+/*--Antenna Top--*/
+
+.bender__antenna::before {
+  left: -255%; top: -30px;
+  width: 19px; height: 19px;
+  border-radius: 50%;
+}
+
+/*--Antenna Bottom--*/
+
+.bender__antenna::after {
+  left: -810%; top: 92px;
+  width: 50px; height: 15px;
+  border-radius: 50% 50% 20% 20% / 100% 100% 3% 3%;
+  box-shadow: 0 -10px 0 rgb(44, 46, 45);
+}
+
+
+/*============================
+           Face
+==============================*/
+.bender__face {
+  position: absolute;
+  width: 100%; height: 90%;
+  top: 20%;
+  border-radius: 100% 100% 20% 20% / 50% 50% 3% 3%;
+  box-shadow: 0 -9px 0 rgb(44, 46, 45);
+  background: rgb(152, 153, 155);
+}
+
+
+/*============================
+            Eyes
+==============================*/
+.bender__eyes {
+  position: absolute;
+  left: -15%; top: 35%;
+  width: 130%; height: 30%;
+  background: rgb(44, 46, 45);
+  border: 10px solid rgb(144, 186, 198);
+  border-radius: 35%/100%;
+  box-shadow: 0 15px 0 rgb(44, 46, 45), 0 -14px 0 rgb(44, 46, 45);
+  overflow: hidden;
+}
+
+.bender__eye {
+  position: absolute;
+  width: 40%; height: 95%;
+  top: 3%;
+  border-radius: 50%;
+  background: linear-gradient(rgb(194, 187, 99) 93%, rgb(44, 46, 45) 0);
+}
+
+.bender__eye--left {
+  left: 8%;
+}
+
+.bender__eye--right {
+  right: 8%;
+}
+
+
+/*---Eyebrows---*/
+
+.bender__eye--left::before,
+.bender__eye--right::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 25%;
+  background: rgb(44, 46, 45);
+}
+
+.bender__eye--left::before {
+  top: -1%; left: 6%;
+  transform: rotate(17deg)
+}
+
+.bender__eye--right::before {
+  top: -1%; right: 6%;
+  transform: rotate(-17deg);
+}
+
+/*---Pupils---*/
+
+.bender__eye--left::after,
+.bender__eye--right::after {
+  content: "";
+  position: absolute;
+  width: 20%; height: 20%;
+  top: 50%;
+  background: rgb(44, 46, 45);
+}
+
+.bender__eye--left::after {
+  left: 45%;
+}
+
+.bender__eye--right::after {
+  right: 45%;
+}
+
+
+/*============================
+            Mouth
+==============================*/
+.bender__mouth {
+  position: absolute;
+  left: 5%; top: 74%;
+  width: 90%; height: 21%;
+  background: rgb(44, 46, 45);
+  border: 10px solid rgb(44, 46, 45);
+  border-radius: 35%/100%;
+  overflow: hidden;
+  background-color: rgb(192, 186, 102);
+  background-image: 
+    repeating-linear-gradient(to right, transparent 7%, rgb(44, 46, 45) 0, rgb(44, 46, 45) 9.5%, transparent 0, transparent 28%),       repeating-linear-gradient(to bottom, transparent 27%, rgb(44, 46, 45) 0, rgb(44, 46, 45) 36%, transparent 0, transparent 70%);
+}
+
+
+
+/*============================
+       Caption Text
+==============================*/
+.caption {
+  position: absolute;
+  left: 34%; top: 45rem;
+  max-width: 230px;
+  margin: 0 auto;
+}
+
+.caption__text {
+  font-size: 4em;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(241, 230, 150);
+}

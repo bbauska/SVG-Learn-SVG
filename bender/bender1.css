@@ -1,0 +1,460 @@
+@use postcss-nested;
+ :root {
+	 --dark-color: #a2b4c8;
+	 --medium-color: #c7d5e2;
+	 --light-color: #dee8f1;
+	 --tooth-color: #fcf8d5;
+	 --door-clip: polygon(0 0, 0 25%, 10% 100%, 90% 100%, 100% 25%, 100% 0);
+	 --custom-border: drop-shadow(-1px -1px 0 #000) drop-shadow(1px 1px 0 #000) drop-shadow(-1px 1px 0 #000) drop-shadow(1px -1px 0 #000);
+}
+ body {
+	 background: #333;
+}
+ .bender {
+	 --head-width: 125px;
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25)) drop-shadow(2px 2px 25px rgba(0, 0, 0, 0.25));
+}
+ .bender .face {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 z-index: 1;
+}
+ .bender .antenna {
+	 --antenna-width: 60px;
+	 width: var(--antenna-width);
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 transform: translateY(25px);
+}
+ .bender .antenna .ball {
+	 --size: 20px;
+	 background: var(--light-color);
+	 width: var(--size);
+	 height: var(--size);
+	 border: 2px solid black;
+	 border-radius: 50%;
+	 transform: translateY(15px);
+	 z-index: 2;
+}
+ .bender .antenna .antenna-body-container {
+	 filter: var(--custom-border);
+	 position: relative;
+	 z-index: 1;
+}
+ .bender .antenna .antenna-body-container .antenna-body {
+	 width: 15px;
+	 height: 75px;
+	 background: var(--dark-color);
+	 border-radius: 5px;
+	 clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+	 transform: translateY(5px);
+}
+ .bender .antenna .antenna-base-container {
+	 filter: var(--custom-border);
+}
+ .bender .antenna .antenna-base-container .antenna-base {
+	 width: 0;
+	 height: 0;
+	 border-style: solid;
+	 border-width: 0 30px 30px 30px;
+	 border-color: transparent transparent var(--light-color) transparent;
+	 transform: translateY(-10px);
+	 z-index: 0;
+}
+ .bender .antenna .antenna-base-container::after {
+	 content: "";
+	 display: block;
+	 background: var(--light-color);
+	 width: var(--antenna-width);
+	 height: 8px;
+	 border-radius: 0 0 15px 15px;
+	 transform: translateY(-10px);
+}
+ .bender .head-container .head-top {
+	 width: var(--head-width);
+	 height: 80px;
+	 background: var(--medium-color);
+	 border: 2px solid black;
+	 border-radius: 50% 50% 0 0;
+	 border-bottom: 0;
+}
+ .bender .head-container .head-center {
+	 background: var(--medium-color);
+	 border: 2px solid black;
+	 border-top: 0;
+	 border-bottom: 0;
+	 width: var(--head-width);
+	 height: 80px;
+}
+ .bender .head-container .head-bottom {
+	 width: var(--head-width);
+	 height: 55px;
+	 border: 2px solid black;
+	 border-top: 0;
+	 border-bottom: 0;
+	 background: var(--medium-color);
+	 display: flex;
+	 justify-content: flex-end;
+}
+ .bender .head-container .head-neck {
+	 width: var(--head-width);
+	 height: 20px;
+	 border: 2px solid black;
+	 border-top: 0;
+	 border-radius: 0 0 50% 50%;
+	 background: var(--medium-color);
+}
+ .bender .eyes {
+	 width: var(--head-width);
+	 background: var(--light-color);
+	 height: 60px;
+	 border: 2px solid black;
+	 transform: translate(30px, -20px);
+	 border-radius: 40px 40px 25px / 35px 50px 25px;
+	 padding: 5px;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: flex-end;
+}
+ .bender .eyes .inner-eyes {
+	 width: 110px;
+	 height: 45px;
+	 background: black;
+	 border-radius: 20px;
+	 display: flex;
+	 position: relative;
+	 overflow: hidden;
+}
+ .bender .eyes .inner-eyes.inner-eyes::after {
+	 content: "";
+	 background: black;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 z-index: 6;
+	 animation: blink 10s infinite alternate;
+}
+ .bender .eyes .inner-eyes .eye {
+	 background: var(--tooth-color);
+	 width: 48px;
+	 height: 90%;
+	 border: 2px solid black;
+	 border-radius: 50%;
+	 display: flex;
+	 justify-content: space-around;
+	 align-items: center;
+}
+ .bender .eyes .inner-eyes .eye.left {
+	 z-index: 1;
+	 clip-path: polygon(0 0, 25% 0, 100% 50%, 100% 100%, 0 100%);
+	 border-bottom-right-radius: 0;
+}
+ .bender .eyes .inner-eyes .eye.right {
+	 transform: translateX(-3px);
+	 clip-path: polygon(0 50%, 75% 0, 100% 0, 100% 100%, 0 100%);
+	 z-index: 0;
+	 border-bottom-left-radius: 0;
+}
+ .bender .eyes .inner-eyes .eye .pupil {
+	 width: 10px;
+	 height: 10px;
+	 background: black;
+}
+ .bender .mouth {
+	 border: 2px solid black;
+	 border-right: 0;
+	 border-radius: 35% 0 20% 35%;
+	 width: 90px;
+	 height: 50px;
+	 overflow: hidden;
+	 transform: translate(2px, 0);
+	 display: flex;
+	 flex-wrap: wrap;
+}
+ .bender .mouth .tooth {
+	 width: 20px;
+	 height: 18px;
+	 border: 1px solid black;
+	 background: var(--tooth-color);
+	 transform: translate(0, -5px);
+}
+ .bender .neck-container {
+	 filter: var(--custom-border);
+	 width: 210px;
+	 height: 50px;
+	 transform: translateY(-20px);
+	 z-index: 0;
+}
+ .bender .neck-container .neck-top {
+	 background: var(--light-color);
+	 height: 40px;
+	 clip-path: polygon(0 100%, 25% 0, 75% 0, 100% 100%);
+}
+ .bender .neck-container .neck-bottom {
+	 background: var(--light-color);
+	 height: 50px;
+	 border-radius: 0 0 50% 50%;
+	 clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+	 transform: translateY(-25px);
+}
+ .bender .body-container {
+	 filter: var(--custom-border);
+	 transform: translateY(-30px);
+	 z-index: -1;
+	 display: flex;
+}
+ .bender .body-container .body {
+	 background: var(--medium-color);
+	 width: 210px;
+	 height: 250px;
+	 clip-path: var(--door-clip);
+	 border-radius: 0 0 30% 30%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .bender .body-container .body .door-container {
+	 filter: var(--custom-border);
+	 border-radius: 25%;
+}
+ .bender .body-container .body .door-container .door {
+	 width: 135px;
+	 height: 160px;
+	 background: var(--medium-color);
+	 clip-path: var(--door-clip);
+	 border-radius: 5% 5% 10% 10%;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+	 transform: translateX(20px);
+}
+ .bender .body-container .body .door-container .door::after {
+	 display: block;
+	 content: "";
+	 border: 2px solid black;
+	 width: 15px;
+	 height: 15px;
+	 border-radius: 50%;
+	 transform: translateX(-15px);
+}
+ .bender .bender-center {
+	 position: relative;
+	 display: flex;
+}
+ .bender .arm {
+	 position: absolute;
+	 transform: translate(-20px, -5px);
+}
+ .bender .arm .shoulder {
+	 background: var(--medium-color);
+	 width: 60px;
+	 height: 60px;
+	 border-radius: 50%;
+	 border: 2px solid black;
+}
+ .bender .arm .arm-piece {
+	 background: var(--medium-color);
+	 border: 2px solid black;
+	 width: 35px;
+	 height: 50px;
+	 border-radius: 40% 40% 0 0 / 15% 15% 0 0;
+	 position: relative;
+}
+ .bender .arm .arm-piece.piece1 {
+	 transform: translate(0, -40px) rotateZ(35deg);
+	 z-index: 10;
+}
+ .bender .arm .arm-piece.piece2 {
+	 transform: translate(-23px, -60px) rotateZ(30deg);
+	 z-index: 11;
+}
+ .bender .arm .arm-piece.piece3 {
+	 height: 40px;
+	 transform: translate(-39px, -74px) rotateZ(14deg);
+	 z-index: 12;
+}
+ .bender .arm .arm-piece.piece4 {
+	 transform: translate(-43px, -85px) rotateZ(-3deg);
+	 z-index: 13;
+}
+ .bender .arm .arm-piece.piece5 {
+	 height: 40px;
+	 transform: translate(-37px, -101px) rotateZ(-23deg);
+	 z-index: 14;
+}
+ .bender .arm .arm-piece.piece6 {
+	 height: 25px;
+	 transform: translate(-23px, -112px) rotateZ(-35deg);
+	 z-index: 15;
+}
+ .bender .arm .hand-container {
+	 filter: var(--custom-border);
+}
+ .bender .arm .hand-container .hand {
+	 background: var(--medium-color);
+	 width: 55px;
+	 height: 40px;
+	 clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+	 transform: translate(-13px, -153px) rotateZ(-48deg);
+}
+ .bender .arm .fingers {
+	 display: flex;
+	 transform: translate(10px, -101px) rotateZ(-45deg);
+}
+ .bender .arm .fingers .finger {
+	 background: var(--medium-color);
+	 border-radius: 5px;
+	 border: 2px solid black;
+	 margin: 0 1px;
+	 width: 12px;
+	 height: 25px;
+}
+ .bender .arm.right {
+	 transform: translate(177px, 19px) scale(-1, 1);
+	 z-index: -2;
+	 position: absolute;
+}
+ .bender .arm.right .shoulder {
+	 position: absolute;
+	 z-index: 15;
+	 transform: translate(2px, -35px);
+}
+ .bender .arm.right .piece1 {
+	 transform: translate(-10px, -23px) rotateZ(39deg);
+}
+ .bender .arm.right .piece2 {
+	 transform: translate(-30px, -51px) rotateZ(30deg);
+}
+ .bender .arm.right .piece3 {
+	 transform: translate(-44px, -73px) rotateZ(19deg);
+}
+ .bender .arm.right .piece4 {
+	 transform: translate(-51px, -88px) rotateZ(4deg);
+}
+ .bender .arm.right .piece5 {
+	 transform: translate(-53px, -112px) rotateZ(0deg);
+}
+ .bender .arm.right .piece6 {
+	 transform: translate(-53px, -124px) rotateZ(0deg);
+}
+ .bender .arm.right .hand {
+	 transform: translate(-61px, -159px) rotateZ(0deg);
+}
+ .bender .arm.right .fingers {
+	 transform: translate(-60px, -96px) rotateZ(0);
+}
+ .bender .legs {
+	 position: relative;
+	 z-index: -5;
+}
+ .bender .leg {
+	 transform: translate(30px, -30px) scale(-1, 1) rotate(-10deg);
+}
+ .bender .leg .leg-piece {
+	 background: var(--dark-color);
+	 border: 2px solid black;
+	 width: 40px;
+	 height: 50px;
+	 border-radius: 40% 40% 0 0 / 15% 15% 0 0;
+	 position: relative;
+}
+ .bender .leg .leg-piece.piece1 {
+	 transform: translate(-10px, -23px) rotateZ(39deg);
+}
+ .bender .leg .leg-piece.piece2 {
+	 transform: translate(-30px, -51px) rotateZ(30deg);
+}
+ .bender .leg .leg-piece.piece3 {
+	 transform: translate(-44px, -73px) rotateZ(19deg);
+}
+ .bender .leg .leg-piece.piece4 {
+	 transform: translate(-51px, -88px) rotateZ(4deg);
+}
+ .bender .leg .leg-piece.piece5 {
+	 transform: translate(-53px, -112px) rotateZ(0deg);
+}
+ .bender .leg .leg-piece.piece6 {
+	 height: 30px;
+	 transform: translate(-53px, -124px) rotateZ(0deg);
+	 border-radius: 10px 10px 50% 50% / 10px 10px 30% 30%;
+}
+ .bender .leg.right {
+	 position: absolute;
+	 transform: translate(-83px, -340px) scale(-1, 1) rotate(-15deg);
+}
+ .bender .foot {
+	 position: relative;
+	 display: flex;
+}
+ .bender .foot .feet {
+	 width: 100px;
+	 transform: translate(10px, -165px);
+	 filter: var(--custom-border);
+	 display: flex;
+	 flex-direction: column;
+	 z-index: -6;
+}
+ .bender .foot .feet.right {
+	 transform: translate(25px, -165px);
+	 z-index: -7;
+}
+ .bender .foot .feet .feet-top {
+	 height: 80px;
+	 border-radius: 50%;
+	 background: var(--medium-color);
+	 clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+ .bender .foot .feet .feet-bottom {
+	 height: 20px;
+	 border-radius: 40%;
+	 background: var(--medium-color);
+	 clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+	 transform: translateY(-50px);
+}
+ @keyframes blink {
+	 0% {
+		 transform: translateY(-75px);
+	}
+	 50%, 100% {
+		 transform: translateY(-25px);
+	}
+}
+ .created {
+	 background: url(https://assets.codepen.io/154065/internal/avatars/users/default.png), linear-gradient(to bottom, #884ced, #ec1cce);
+	 background-size: 75px 75px, cover;
+	 background-repeat: no-repeat;
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 width: 250px;
+	 height: 75px;
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+	 padding-left: 2em;
+}
+ .created span, .created h2, .created p, .created a {
+	 font-family: Montserrat;
+	 margin: 0;
+}
+ .created a, .created p, .created span {
+	 color: #fff;
+}
+ .created h2 {
+	 font-weight: 700;
+	 transform: translate(0, -4px);
+}
+ .created a {
+	 text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+ .created a:hover {
+	 color: #e6e82a;
+}
+ 
